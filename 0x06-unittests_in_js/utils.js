@@ -1,10 +1,22 @@
-// utils.js
+
 const Utils = {
-    calculateNumber: (type, a, b) => {
-        if (type === 'SUM') {
-            return Math.round(a) + Math.round(b);
+    calculateNumber: function (type, a, b) {
+    roundA = Math.round(a);
+    roundB = Math.round(b);
+    
+    switch(type) {
+      case 'SUM':
+        return roundA + roundB;
+      case 'SUBTRACT':
+        return roundA - roundB;
+      case 'DIVIDE':
+        if (roundB === 0) {
+          return 'Error';
         }
-        // Add other operations if needed
+        return roundA / roundB;
+      default:
+        return 'Error';
+    }
     }
 };
 
